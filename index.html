@@ -1,35 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AR.js Image Tracking Example</title>
-  <script src="https://cdn.jsdelivr.net/npm/@jeromeetienne/ar.js"></script>
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-    }
-    #container {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #f0f0f0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Marker-based AR with GLTF Model</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
 </head>
-<body>
-  <div id="container">
-    <a-scene embedded arjs="sourceType: webcam; trackingMethod: best;">
-      <!-- Define your image marker -->
-      <a-marker type="image" url="path/to/your-image.jpg">
-        <!-- Add your AR content here -->
-        <a-box position="0 0.5 0" material="color: yellow;"></a-box>
-      </a-marker>
-      <!-- Define the camera -->
-      <a-entity camera></a-entity>
+<body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs='sourceType: webcam;'>
+        <a-marker preset="hiro" >
+            <a-entity gltf-model="url(pony_cartoon.glb)" scale="0.5 0.5 0.5"></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
     </a-scene>
-  </div>
 </body>
 </html>
